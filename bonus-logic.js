@@ -5,6 +5,17 @@ function startBonusRounds() {
     currentPhase = 'bonus';
     currentQuestion = 0;
     bonusType = 'capital';
+    
+    // Reset the quiz content HTML
+    document.getElementById('quiz-content').innerHTML = 
+        '<div class="question-container">' +
+        '<div class="question" id="question"></div>' +
+        '<div class="options" id="options"></div>' +
+        '<div id="feedback" class="feedback"></div>' +
+        '<button id="nextBtn" class="btn btn-primary" onclick="handleNext()" disabled>Next Question</button>' +
+        '<div class="creator-credit">Created by Claude • Prompted by David • Inspired by Matt</div>' +
+        '</div>';
+    
     updateScore();
     updatePhaseIndicator();
     showBonusQuestion();
