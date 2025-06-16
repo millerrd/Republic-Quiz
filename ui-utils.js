@@ -109,17 +109,17 @@ function showFeedback(isCorrect, correctAnswer, explanation) {
 
 // Show option results
 function showOptionResults(selectedAnswer, correctAnswer) {
-    var options = document.querySelectorAll('#options .option');
+    var options = document.querySelectorAll('#options .option, #options .flag-option');
     
     for (var i = 0; i < options.length; i++) {
         options[i].classList.add('disabled');
-        if (options[i].textContent === selectedAnswer) {
+        if (options[i].textContent === selectedAnswer || options[i].onclick.toString().indexOf("'" + selectedAnswer + "'") > -1) {
             options[i].classList.add('selected');
         }
-        if (options[i].textContent === correctAnswer) {
+        if (options[i].textContent === correctAnswer || options[i].onclick.toString().indexOf("'" + correctAnswer + "'") > -1) {
             options[i].classList.add('correct');
         }
-        if (options[i].textContent === selectedAnswer && selectedAnswer !== correctAnswer) {
+        if ((options[i].textContent === selectedAnswer || options[i].onclick.toString().indexOf("'" + selectedAnswer + "'") > -1) && selectedAnswer !== correctAnswer) {
             options[i].classList.add('incorrect');
         }
     }
@@ -192,16 +192,6 @@ function showShareFeedback(message) {
     setTimeout(function() {
         document.body.removeChild(feedback);
     }, 3000);
-}
-
-// Show/hide leaderboard
-function showLeaderboard() {
-    document.getElementById('leaderboard-section').style.display = 'block';
-    loadLeaderboard();
-}
-
-function hideLeaderboard() {
-    document.getElementById('leaderboard-section').style.display = 'none';
 }
 
 // Enhanced skip function - skips through all phases
