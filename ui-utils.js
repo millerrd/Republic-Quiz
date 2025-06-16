@@ -179,17 +179,7 @@ function shareResults() {
     }
 }
 
-function copyToClipboard(text) {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(function() {
-            showShareFeedback('Results copied to clipboard! 📋');
-        }).catch(function() {
-            fallbackCopyToClipboard(text);
-        });
-    } else {
-        fallbackCopyToClipboard(text);
-    }
-}
+// Remove the old copyToClipboard function since we're using forceClipboardCopy now
 
 function fallbackCopyToClipboard(text) {
     var textArea = document.createElement('textarea');
@@ -213,7 +203,7 @@ function fallbackCopyToClipboard(text) {
 
 function showShareFeedback(message) {
     var feedback = document.createElement('div');
-    feedback.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #48bb78; color: white; padding: 12px 20px; border-radius: 8px; z-index: 1000; font-weight: 600;';
+    feedback.style.cssText = 'position: fixed; bottom: 50%; left: 50%; transform: translateX(-50%); background: #48bb78; color: white; padding: 12px 20px; border-radius: 8px; z-index: 1000; font-weight: 600; box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);';
     feedback.textContent = message;
     document.body.appendChild(feedback);
     
