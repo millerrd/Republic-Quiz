@@ -1,4 +1,8 @@
-* {
+.creator-credit {
+        font-size: 0.7em;
+        margin-top: 16px;
+        padding-top: 8px;
+    }* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -247,9 +251,11 @@ h1 {
     color: rgba(77, 89, 104, 0.6);
     font-size: 0.8em;
     font-weight: 400;
-    margin-top: 12px;
-    margin-bottom: 16px;
+    margin-top: 20px;
+    margin-bottom: 0;
     letter-spacing: 0.5px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(226, 232, 240, 0.5);
 }
 
 .performance-insights {
@@ -581,5 +587,11 @@ h1 {
     
     .performance-insights {
         padding: 12px;
+    }
+    
+    .creator-credit {
+        font-size: 0.7em;
+        margin-top: 16px;
+        padding-top: 8px;
     }
 }
