@@ -1,0 +1,17 @@
+{
+  "scores": [
+    {
+      "name": "Demo Player",
+      "score": 85,
+      "percentage": 85,
+      "date": "2024-12-19",
+      "breakdown": {
+        "adjectives": 20,
+        "capitals": 18,
+        "languages": 15,
+        "flags": 19,
+        "superBonus": 6
+      }
+    }
+  ]
+}
