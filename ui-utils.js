@@ -88,7 +88,11 @@ function showFeedback(isCorrect, correctAnswer, explanation) {
             feedback.textContent = '✅ Correct! The answer is "' + correctAnswer + '".';
             feedback.className = 'feedback correct';
         } else if (currentPhase === 'bonus') {
-            feedback.textContent = '🎉 Bonus point earned! ' + correctAnswer + ' is correct!';
+            if (bonusType === 'flag') {
+                feedback.textContent = '🎉 Bonus point earned! Correct flag selected!';
+            } else {
+                feedback.textContent = '🎉 Bonus point earned! ' + correctAnswer + ' is correct!';
+            }
             feedback.className = 'feedback bonus-correct';
         } else if (currentPhase === 'super') {
             feedback.textContent = '🌟 Correct! ' + explanation;
@@ -97,6 +101,8 @@ function showFeedback(isCorrect, correctAnswer, explanation) {
     } else {
         if (currentPhase === 'super') {
             feedback.textContent = '❌ Incorrect. ' + explanation;
+        } else if (currentPhase === 'bonus' && bonusType === 'flag') {
+            feedback.textContent = '❌ Incorrect. The correct flag is highlighted.';
         } else {
             feedback.textContent = '❌ Incorrect. The correct answer is "' + correctAnswer + '".';
         }
