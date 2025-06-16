@@ -145,19 +145,7 @@ var quizData = [
         population: 83992949,
         area: 1648195
     },
-    {
-        country: "The Democratic People's Republic of Korea",
-        correct: "Democratic People's",
-        options: ["Democratic People's", "People's", "Socialist", "Communist"],
-        capital: "Pyongyang",
-        capitalOptions: ["Pyongyang", "Seoul", "Beijing", "Tokyo"],
-        language: "Korean",
-        languageOptions: ["Korean", "Chinese", "Japanese", "Russian"],
-        flag: "🇰🇵",
-        flagOptions: ["🇰🇵", "🇰🇷", "🇨🇳", "🇯🇵"],
-        population: 25778816,
-        area: 120538
-    },
+{ country: "The Democratic People's Republic of Korea", correct: "Democratic People's", options: ["Democratic People's", "People's", "Socialist", "Communist"], capital: "Pyongyang", capitalOptions: ["Pyongyang", "Seoul", "Beijing", "Tokyo"], language: "Korean", languageOptions: ["Korean", "Chinese", "Japanese", "Russian"], flag: "kp", flagOptions: ["kp", "kr", "cn", "jp"] },
     {
         country: "The Islamic Republic of Mauritania",
         correct: "Islamic",
