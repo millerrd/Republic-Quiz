@@ -203,3 +203,39 @@ function showLeaderboard() {
 function hideLeaderboard() {
     document.getElementById('leaderboard-section').style.display = 'none';
 }
+
+// Enhanced skip function - skips through all phases
+function skipAllBonus() {
+    if (currentPhase === 'main') {
+        // Skip to bonus rounds with perfect score
+        score = 23;
+        currentQuestion = 23;
+        updateScore();
+        showMainComplete();
+    } else if (currentPhase === 'bonus') {
+        // Skip current bonus round
+        if (bonusType === 'capital') {
+            bonusScores.capital = 23;
+            bonusType = 'language';
+            currentQuestion = 0;
+            updateScore();
+            updatePhaseIndicator();
+            showBonusQuestion();
+        } else if (bonusType === 'language') {
+            bonusScores.language = 23;
+            bonusType = 'flag';
+            currentQuestion = 0;
+            updateScore();
+            updatePhaseIndicator();
+            showBonusQuestion();
+        } else if (bonusType === 'flag') {
+            bonusScores.flag = 23;
+            startSuperBonus();
+        }
+    } else if (currentPhase === 'super') {
+        // Skip to final score with perfect super bonus
+        superBonusScore = 7;
+        updateScore();
+        showFinalScore();
+    }
+}
