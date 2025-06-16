@@ -91,6 +91,7 @@ function showBonusQuestion() {
         for (var i = 0; i < shuffledOptions.length; i++) {
             var option = document.createElement('div');
             option.className = 'flag-option';
+            option.setAttribute('data-flag', shuffledOptions[i]); // Add data attribute
             
             var flagImg = document.createElement('img');
             flagImg.src = 'https://flagcdn.com/w160/' + shuffledOptions[i] + '.png';
