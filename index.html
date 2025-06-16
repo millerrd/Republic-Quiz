@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Republic Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>🏛️ Republic Quiz</h1>
+        <p class="subtitle">From political systems to world capitals, languages, and flags - become a global republic expert!</p>
+
+        <div class="score">Score: <span id="score">0</span> / <span id="total">23</span></div>
+        
+        <div class="question-counter" id="questionCounter">
+            Question 1 of 23
+        </div>
+        
+        <div class="phase-indicator phase-main" id="phaseIndicator">
+            📚 Main Quiz: Republic Adjectives
+        </div>
+        
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div id="quiz-content">
+            <div class="question-container">
+                <div class="question" id="question"></div>
+                <div class="options" id="options"></div>
+                <div id="feedback" class="feedback"></div>
+                <button id="nextBtn" class="btn btn-primary" onclick="handleNext()" disabled>Next Question</button>
+                
+                <div class="creator-credit">
+                    Created by Claude • Prompted by David • Inspired by Matt
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript files in correct order -->
+    <script src="quiz-data.js"></script>
+    <script src="ui-utils.js"></script>
+    <script src="quiz-logic.js"></script>
+    <script src="bonus-logic.js"></script>
+    <script>
+        // Initialize the quiz when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            init();
+        });
+    </script>
+</body>
+</html>
