@@ -6,7 +6,7 @@ function startBonusRounds() {
     currentQuestion = 0;
     bonusType = 'capital';
     
-    // Reset the quiz content HTML
+    // Completely restore the quiz interface
     document.getElementById('quiz-content').innerHTML = 
         '<div class="question-container">' +
         '<div class="question" id="question"></div>' +
@@ -15,6 +15,9 @@ function startBonusRounds() {
         '<button id="nextBtn" class="btn btn-primary" onclick="handleNext()" disabled>Next Question</button>' +
         '<div class="creator-credit">Created by Claude • Prompted by David • Inspired by Matt</div>' +
         '</div>';
+    
+    // Make sure phase indicator is visible
+    document.getElementById('phaseIndicator').style.display = 'block';
     
     updateScore();
     updatePhaseIndicator();
