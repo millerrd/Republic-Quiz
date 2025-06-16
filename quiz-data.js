@@ -329,10 +329,5 @@ var superBonusQuestions = [
         correct: "China",
         explanation: "China spans 5 time zones but officially uses only Beijing Time."
     },
-    {
-        question: "Which two republics were once united as one country?",
-        options: ["North & South Korea", "Germany & Austria", "Bangladesh & Pakistan", "Both A and C"],
-        correct: "Both A and C",
-        explanation: "Korea was divided in 1945, and Bangladesh was East Pakistan until 1971."
-    }
+{ question: "Which republic is the only one with 'Co-operative' in its official name?", options: ["Guyana", "Uruguay", "Tanzania", "Somalia"], correct: "Guyana", explanation: "Guyana is officially called 'The Co-operative Republic of Guyana', making it unique among world republics." }
 ];
