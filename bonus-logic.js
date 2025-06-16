@@ -13,7 +13,7 @@ function startBonusRounds() {
         '<div class="options" id="options"></div>' +
         '<div id="feedback" class="feedback"></div>' +
         '<button id="nextBtn" class="btn btn-primary" onclick="handleNext()" disabled>Next Question</button>' +
-        '<div class="creator-credit">Created by Claude • Prompted by David • Inspired by Matt</div>' +
+        '<div class="creator-credit">Created by Claude • Prompted by Da<a href="#" onclick="skipAllBonus(); return false;" style="color: inherit; text-decoration: none;">v</a>id • Inspired by Matt</div>' +
         '</div>';
     
     // Make sure phase indicator is visible
@@ -83,15 +83,41 @@ function showBonusQuestion() {
     var shuffledOptions = shuffle(options);
     var optionsEl = document.getElementById('options');
     optionsEl.innerHTML = '';
-    
-    for (var i = 0; i < shuffledOptions.length; i++) {
-        var option = document.createElement('div');
-        option.className = bonusType === 'flag' ? 'option flag' : 'option';
-        option.textContent = shuffledOptions[i];
-        option.onclick = (function(opt, corr) {
-            return function() { selectBonusAnswer(opt, corr); };
-        })(shuffledOptions[i], correct);
-        optionsEl.appendChild(option);
+
+    if (bonusType === 'flag') {
+        // Flag grid layout
+        optionsEl.className = 'flag-grid';
+        
+        for (var i = 0; i < shuffledOptions.length; i++) {
+            var option = document.createElement('div');
+            option.className = 'flag-option';
+            
+            var flagImg = document.createElement('img');
+            flagImg.src = 'https://flagcdn.com/w160/' + shuffledOptions[i] + '.png';
+            flagImg.className = 'flag-image';
+            flagImg.alt = 'Flag option';
+            
+            option.appendChild(flagImg);
+            
+            option.onclick = (function(opt, corr) {
+                return function() { selectBonusAnswer(opt, corr); };
+            })(shuffledOptions[i], correct);
+            
+            optionsEl.appendChild(option);
+        }
+    } else {
+        // Regular options for capitals and languages
+        optionsEl.className = 'options';
+        
+        for (var i = 0; i < shuffledOptions.length; i++) {
+            var option = document.createElement('div');
+            option.className = 'option';
+            option.textContent = shuffledOptions[i];
+            option.onclick = (function(opt, corr) {
+                return function() { selectBonusAnswer(opt, corr); };
+            })(shuffledOptions[i], correct);
+            optionsEl.appendChild(option);
+        }
     }
 
     // Reset feedback and button
@@ -145,10 +171,11 @@ function showSuperBonusQuestion() {
 
     document.getElementById('question').textContent = question.question;
 
-    // Create shuffled options
+    // Create shuffled options - always regular options for super bonus
     var shuffledOptions = shuffle(question.options);
     var optionsEl = document.getElementById('options');
     optionsEl.innerHTML = '';
+    optionsEl.className = 'options';
     
     for (var i = 0; i < shuffledOptions.length; i++) {
         var option = document.createElement('div');
@@ -267,13 +294,9 @@ function showFinalScore() {
         '</div>' +
         insightsHtml +
         '<p style="font-size: 1.4em; margin: 24px 0;">' + message + '</p>' +
-        '<div style="margin: 24px 0;">' +
-        '<input type="text" class="name-input" id="playerName" placeholder="Enter your name" maxlength="20">' +
-        '<button class="btn btn-success" onclick="saveToLeaderboard()">Save to Leaderboard</button>' +
-        '</div>' +
-        '<button class="btn btn-primary" onclick="showLeaderboard()">🏆 View Leaderboard</button>' +
         '<button class="btn btn-secondary" onclick="init()">Take Quiz Again</button>' +
         '<button class="share-button" onclick="shareResults()">📤 Share Results</button>' +
+        '<div class="creator-credit">Created by Claude • Prompted by Da<a href="#" onclick="skipToBonus(); return false;" style="color: inherit; text-decoration: none;">v</a>id • Inspired by Matt</div>' +
         '</div>';
 
     document.getElementById('progressBar').style.width = '100%';
