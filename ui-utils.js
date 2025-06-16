@@ -153,7 +153,7 @@ function showOptionResults(selectedAnswer, correctAnswer) {
     }
 }
 
-// Share results functionality
+// Share results functionality - force clipboard copy only
 function shareResults() {
     var totalPoints = score + bonusScores.capital + bonusScores.language + bonusScores.flag + superBonusScore;
     var overallPercentage = Math.round((totalPoints / 100) * 100);
@@ -165,21 +165,27 @@ function shareResults() {
         '🚩 Flags: ' + bonusScores.flag + '/23\n' +
         '🌟 Super Bonus: ' + superBonusScore + '/7\n\n' +
         '🏆 Total Score: ' + totalPoints + '/100 (' + overallPercentage + '%)\n\n' +
-        'Test your republic knowledge too! 🌍';
+        'Test your republic knowledge too! 🌍\n' +
+        'https://millermetre.github.io/Republic-Quiz/';
 
-    if (navigator.share) {
-        navigator.share({
-            title: 'Republic Quiz Results',
-            text: shareText
-        }).catch(function(err) {
-            copyToClipboard(shareText);
-        });
-    } else {
-        copyToClipboard(shareText);
-    }
+    // Force clipboard copy, never use native share
+    forceClipboardCopy(shareText);
 }
 
-// Remove the old copyToClipboard function since we're using forceClipboardCopy now
+function forceClipboardCopy(text) {
+    // Try modern clipboard API first
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function() {
+            showShareFeedback('Results copied to clipboard! 📋');
+        }).catch(function() {
+            // Fallback if clipboard API fails
+            fallbackCopyToClipboard(text);
+        });
+    } else {
+        // Use fallback method
+        fallbackCopyToClipboard(text);
+    }
+}
 
 function fallbackCopyToClipboard(text) {
     var textArea = document.createElement('textarea');
