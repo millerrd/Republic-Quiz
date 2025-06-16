@@ -295,7 +295,7 @@ function showFinalScore() {
         insightsHtml +
         '<p style="font-size: 1.4em; margin: 24px 0;">' + message + '</p>' +
         '<button class="btn btn-secondary" onclick="init()">Take Quiz Again</button>' +
-        '<button class="share-button" onclick="shareResults()">📤 Share Results</button>' +
+        '<button class="btn share-button" onclick="shareResults()">Copy Results</button>' +
         '<div class="creator-credit">Created by Claude • Prompted by Da<a href="#" onclick="skipAllBonus(); return false;" style="color: inherit; text-decoration: none;">v</a>id • Inspired by Matt</div>' +
         '</div>';
 
