@@ -26,6 +26,13 @@ body {
     border: 1px solid rgba(255,255,255,0.2);
     max-height: 90vh;
     overflow-y: auto;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.quiz-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
 }
 
 h1 {
