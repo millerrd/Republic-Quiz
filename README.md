@@ -8,7 +8,7 @@ This interactive quiz challenges you to identify the correct adjectives used in 
 
 ## 🚀 Play the Quiz
 
-**[🎮 Start Quiz →](https://millermetre.github.io/republic-quiz/)**
+**[🎮 Start Quiz →](https://millerrd.github.io/republic-quiz/)**
 
 ## ✨ Features
 
