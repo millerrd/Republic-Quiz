@@ -8,7 +8,7 @@ This interactive quiz challenges you to identify the correct adjectives used in 
 
 ## 🚀 Play the Quiz
 
-**[🎮 Start Quiz →](https://millerrd.github.io/republic-quiz/)**
+**[🎮 Start Quiz →](https://millerrd.github.io/Republic-Quiz/)**
 
 ## ✨ Features
 
@@ -102,4 +102,4 @@ This project is open source and available under the [GPL-3.0 License](LICENSE).
 
 ---
 
-**Ready to test your republic knowledge? [Take the quiz!](https://millermetre.github.io/republic-quiz/) 🌍**
+**Ready to test your republic knowledge? [Take the quiz!](https://millerrd.github.io/Republic-Quiz/) 🌍**
